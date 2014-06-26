@@ -17,5 +17,5 @@ tracks:
     release_tag: :{version}
     ros_distro: hydro
     vcs_type: hg
-    vcs_uri: https://hsu@bitbucket.org/osrf/multisense_ros
+    vcs_uri: https://bitbucket.org/osrf/multisense_ros
     version: :{auto}
