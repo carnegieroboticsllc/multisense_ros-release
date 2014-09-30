@@ -3,22 +3,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **/
 
 #ifndef MULTISENSE_ROS_CAMERA_H
@@ -53,6 +63,7 @@ public:
     void colorImageCallback(const crl::multisense::image::Header& header);
     void disparityImageCallback(const crl::multisense::image::Header& header);
     void jpegImageCallback(const crl::multisense::image::Header& header);
+    void histogramCallback(const crl::multisense::image::Header& header);
 
 private:
 
@@ -97,9 +108,15 @@ private:
     //
     // Data publishers
 
+    sensor_msgs::CameraInfo          left_mono_cam_info_;
+    sensor_msgs::CameraInfo          right_mono_cam_info_;
     sensor_msgs::CameraInfo          left_rect_cam_info_;
     sensor_msgs::CameraInfo          right_rect_cam_info_;
     sensor_msgs::CameraInfo          left_rgb_rect_cam_info_;
+    sensor_msgs::CameraInfo          left_disp_cam_info_;
+    sensor_msgs::CameraInfo          right_disp_cam_info_;
+    sensor_msgs::CameraInfo          left_cost_cam_info_;
+    sensor_msgs::CameraInfo          left_rgb_cam_info_;
 
     image_transport::Publisher       left_mono_cam_pub_;
     image_transport::Publisher       right_mono_cam_pub_;
@@ -109,8 +126,21 @@ private:
     image_transport::Publisher       left_rgb_cam_pub_;
     image_transport::CameraPublisher left_rgb_rect_cam_pub_;
 
+    ros::Publisher                   left_mono_cam_info_pub_;
+    ros::Publisher                   right_mono_cam_info_pub_;
+    ros::Publisher                   left_rect_cam_info_pub_;
+    ros::Publisher                   right_rect_cam_info_pub_;
+    ros::Publisher                   left_disp_cam_info_pub_;
+    ros::Publisher                   right_disp_cam_info_pub_;
+    ros::Publisher                   left_cost_cam_info_pub_;
+    ros::Publisher                   left_rgb_cam_info_pub_;
+    ros::Publisher                   left_rgb_rect_cam_info_pub_;
+
     ros::Publisher                   luma_point_cloud_pub_;
     ros::Publisher                   color_point_cloud_pub_;
+
+    ros::Publisher                   luma_organized_point_cloud_pub_;
+    ros::Publisher                   color_organized_point_cloud_pub_;
 
     image_transport::Publisher       left_disparity_pub_;
     image_transport::Publisher       right_disparity_pub_;
@@ -123,6 +153,7 @@ private:
     ros::Publisher raw_cam_config_pub_;
     ros::Publisher raw_cam_cal_pub_;
     ros::Publisher device_info_pub_;
+    ros::Publisher histogram_pub_;
 
     //
     // Store outgoing messages for efficiency
@@ -134,6 +165,8 @@ private:
     sensor_msgs::Image         depth_image_;
     sensor_msgs::PointCloud2   luma_point_cloud_;
     sensor_msgs::PointCloud2   color_point_cloud_;
+    sensor_msgs::PointCloud2   luma_organized_point_cloud_;
+    sensor_msgs::PointCloud2   color_organized_point_cloud_;
 
     sensor_msgs::Image         left_luma_image_;
     sensor_msgs::Image         left_rgb_image_;
@@ -148,6 +181,8 @@ private:
     int64_t                    left_luma_frame_id_;
     int64_t                    left_rect_frame_id_;
     int64_t                    left_rgb_rect_frame_id_;
+    int64_t                    luma_point_cloud_frame_id_;
+    int64_t                    color_point_cloud_frame_id_;
     multisense_ros::RawCamData raw_cam_data_;
 
     //
@@ -160,22 +195,23 @@ private:
 
     //
     // For local rectification of color images
-    
+
     boost::mutex cal_lock_;
     CvMat *calibration_map_left_1_;
     CvMat *calibration_map_left_2_;
 
     //
     // The frame IDs
-    
+
     std::string frame_id_left_;
     std::string frame_id_right_;
-    
+
     //
     // For pointcloud generation
 
     std::vector<float>            disparity_buff_;
     std::vector<cv::Vec3f>        points_buff_;
+    int64_t                       points_buff_frame_id_;
     cv::Mat_<double>              q_matrix_;
     uint32_t                      pc_border_clip_;
     float                         pc_max_range_;
@@ -183,10 +219,26 @@ private:
 
     //
     // Stream subscriptions
-    
+
     typedef std::map<crl::multisense::DataSource, int32_t> StreamMapType;
     boost::mutex stream_lock_;
     StreamMapType stream_map_;
+
+    //
+    // Histogram tracking
+
+    int64_t last_frame_id_;
+
+    //
+    // Luma Color Depth
+
+    uint8_t luma_color_depth_;
+
+    //
+    // If the color pointcloud data should be written packed. If false
+    // it will be static_cast to a flat and interpreted literally
+
+    bool write_pc_color_packed_;
 };
 
 }
