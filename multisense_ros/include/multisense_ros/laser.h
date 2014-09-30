@@ -3,22 +3,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **/
 
 #ifndef MULTISENSE_ROS_LASER_H
@@ -30,8 +40,8 @@
 #include <sensor_msgs/LaserScan.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/PointCloud2.h>
-#include <tf/transform_datatypes.h>  
-#include <tf/transform_broadcaster.h>                                              
+#include <tf/transform_datatypes.h>
+#include <tf/transform_broadcaster.h>
 
 #include <multisense_lib/MultiSenseChannel.hh>
 
@@ -49,7 +59,7 @@ public:
     void pointCloudCallbackT(const crl::multisense::lidar::Header& header);
 
     static const float EXPECTED_RATE;
-    
+
 private:
 
     //
@@ -60,12 +70,18 @@ private:
     void stop();
 
     //
-    // Transform boadcasting 
-    void publishStaticTransforms(ros::Time time);
-    tf::Transform publishSpindleTransform(float spindle_angle, ros::Time time, bool publish=true);
+    // Transform boadcasting
+    void publishStaticTransforms(const ros::Time& time);
+    void publishSpindleTransform(const float spindle_angle, const float velocity, const ros::Time& time);
 
     tf::TransformBroadcaster static_tf_broadcaster_;
-    tf::TransformBroadcaster spindle_tf_broadcaster_;
+
+    void defaultTfPublisher(const ros::TimerEvent& event);
+
+    //
+    // Query transforms
+
+    tf::Transform getSpindleTransform(float spindle_angle);
 
     //
     // Calibration from sensor
@@ -95,18 +111,37 @@ private:
     ros::Publisher raw_lidar_data_pub_;
     ros::Publisher point_cloud_pub_;
     ros::Publisher raw_lidar_cal_pub_;
+    ros::Publisher joint_states_pub_;
 
     //
     // Keep around for efficiency
 
     sensor_msgs::LaserScan   laser_msg_;
     sensor_msgs::PointCloud2 point_cloud_;
+    sensor_msgs::JointState  joint_states_;
 
     //
     // Subscriptions
-    
+
     boost::mutex sub_lock_;
     int32_t      subscribers_;
+
+    //
+    // Timer used to publish the default laser transforms
+
+    ros::Timer timer_;
+
+    //
+    // Spindle angle used when publishing the default transforms
+
+    float spindle_angle_;
+
+
+    //
+    // Track publishing rates
+
+    ros::Time previous_scan_time_;
+
 
 }; // class
 
