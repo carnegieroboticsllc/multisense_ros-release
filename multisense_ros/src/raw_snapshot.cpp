@@ -3,22 +3,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **/
 #include <ros/ros.h>
 #include <ros/topic.h>
@@ -63,7 +73,7 @@ public:
 
         if (motion_started_ || 0 == scans_.size())
             scans_.push_back(msg);
-      
+
         if (!motion_started_) {
             std::list<multisense_ros::RawLidarData::ConstPtr>::const_iterator it = scans_.begin();
 
@@ -116,7 +126,7 @@ public:
 
             //
             // Save the previous start angle
-            
+
             previous_start = current_start;
         }
 
@@ -141,7 +151,7 @@ public:
 
         //
         // Service our own callback queue
-        
+
         while(1) {
 
             queue_.callOne(ros::WallDuration(1.0));
@@ -195,19 +205,19 @@ void setResolution(const std::string& res)
     str_param.name  = "resolution";
     str_param.value = res;
     conf.strs.push_back(str_param);
-    
+
     setConf(conf);
 }
 
 }; // anonymous
 
-int main(int    argc, 
+int main(int    argc,
          char** argvPP)
 {
     ros::init(argc, argvPP, "raw_snapshot");
     ros::NodeHandle nh;
 
-    if (argc != 2 || 
+    if (argc != 2 ||
         std::string(argvPP[1]) == "--help" ||
         std::string(argvPP[1]) == "-h") {
 
@@ -282,7 +292,7 @@ int main(int    argc,
 
     LaserHelper laser_helper;
     std::list<multisense_ros::RawLidarData::ConstPtr> raw_lidar_data;
-    
+
     if (false == laser_helper.getRotation(raw_lidar_data)) {
         printf("  Error capturing RawLidarData...\n");
         return -1;
@@ -297,7 +307,7 @@ int main(int    argc,
     printf("Saving data to file [%s]\n", outfile.c_str());
     rosbag::Bag bag;
     bag.open(outfile, rosbag::bagmode::Write);
-    
+
     bag.write(TOPIC_DEVICE_INFO, ros::TIME_MIN, *device_info);
     bag.write(TOPIC_RAW_LIDAR_CAL, ros::TIME_MIN, *lidar_cal);
     bag.write(TOPIC_RAW_CAM_CAL, ros::TIME_MIN, *cam_cal);

@@ -3,22 +3,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * Significant history (date, user, job code, action):
  *   2013-04-25, ekratzer@carnegierobotics.com, PR1044, Created file.
@@ -28,6 +38,7 @@
 
 #include "MultiSenseChannel.hh"
 
+#include "details/utility/Portability.hh"
 #include "details/utility/Thread.hh"
 #include "details/utility/BufferStream.hh"
 #include "details/utility/Units.hh"
@@ -163,23 +174,23 @@ private:
     //
     // The version of this API
 
-    static const VersionType API_VERSION = 0x0301; // 3.1
+    static CONSTEXPR VersionType API_VERSION = 0x0303; // 3.3
 
     //
     // Misc. internal constants
 
-    static const uint32_t MAX_MTU_SIZE               = 9000;
-    static const uint16_t DEFAULT_SENSOR_TX_PORT     = 9001;
-    static const uint32_t RX_POOL_LARGE_BUFFER_SIZE  = (10 * (1024 * 1024));
-    static const uint32_t RX_POOL_LARGE_BUFFER_COUNT = 50;
-    static const uint32_t RX_POOL_SMALL_BUFFER_SIZE  = (10 * (1024));
-    static const uint32_t RX_POOL_SMALL_BUFFER_COUNT = 100;
+    static CONSTEXPR uint32_t MAX_MTU_SIZE               = 9000;
+    static CONSTEXPR uint16_t DEFAULT_SENSOR_TX_PORT     = 9001;
+    static CONSTEXPR uint32_t RX_POOL_LARGE_BUFFER_SIZE  = (10 * (1024 * 1024));
+    static CONSTEXPR uint32_t RX_POOL_LARGE_BUFFER_COUNT = 50;
+    static CONSTEXPR uint32_t RX_POOL_SMALL_BUFFER_SIZE  = (10 * (1024));
+    static CONSTEXPR uint32_t RX_POOL_SMALL_BUFFER_COUNT = 100;
 
-    static const double   DEFAULT_ACK_TIMEOUT        = 0.2; // seconds
-    static const uint32_t DEFAULT_ACK_ATTEMPTS       = 5;
-    static const uint32_t IMAGE_META_CACHE_DEPTH     = 20;
-    static const uint32_t UDP_TRACKER_CACHE_DEPTH    = 10;
-    static const uint32_t TIME_SYNC_OFFSET_DECAY     = 8;
+    static CONSTEXPR double   DEFAULT_ACK_TIMEOUT        = 0.2; // seconds
+    static CONSTEXPR uint32_t DEFAULT_ACK_ATTEMPTS       = 5;
+    static CONSTEXPR uint32_t IMAGE_META_CACHE_DEPTH     = 20;
+    static CONSTEXPR uint32_t UDP_TRACKER_CACHE_DEPTH    = 10;
+    static CONSTEXPR uint32_t TIME_SYNC_OFFSET_DECAY     = 8;
 
     //
     // We must protect ourselves from user callbacks misbehaving
@@ -188,22 +199,22 @@ private:
     // These define the maximum number of datums that we will
     // queue up in a user dispatch thread.
 
-    static const uint32_t MAX_USER_IMAGE_QUEUE_SIZE = 5;
-    static const uint32_t MAX_USER_LASER_QUEUE_SIZE = 20;
+    static CONSTEXPR uint32_t MAX_USER_IMAGE_QUEUE_SIZE = 5;
+    static CONSTEXPR uint32_t MAX_USER_LASER_QUEUE_SIZE = 20;
 
     //
     // PPS and IMU callbacks do not reserve an RX buffer, so queue
     // depths are limited by RAM (via heap.)
 
-    static const uint32_t MAX_USER_PPS_QUEUE_SIZE = 2;
-    static const uint32_t MAX_USER_IMU_QUEUE_SIZE = 50;
+    static CONSTEXPR uint32_t MAX_USER_PPS_QUEUE_SIZE = 2;
+    static CONSTEXPR uint32_t MAX_USER_IMU_QUEUE_SIZE = 50;
 
     //
     // The maximum number of directed streams
     //  (this is completely arbitrary, TODO: determine
     //   reasonable values per hardware type)
 
-    static const uint32_t MAX_DIRECTED_STREAMS = 10;
+    static CONSTEXPR uint32_t MAX_DIRECTED_STREAMS = 10;
 
     //
     // A re-assembler for multi-packet messages
