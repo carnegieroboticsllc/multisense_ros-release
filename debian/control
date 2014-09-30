@@ -1,0 +1,12 @@
+Source: ros-hydro-multisense
+Section: misc
+Priority: extra
+Maintainer: Maintained by Carnegie Robotics LLC <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin
+Homepage: http://ros.org/wiki/multisense
+Standards-Version: 3.9.2
+
+Package: ros-hydro-multisense
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-multisense-bringup, ros-hydro-multisense-cal-check, ros-hydro-multisense-description, ros-hydro-multisense-lib, ros-hydro-multisense-ros
+Description: mulisense catkin driver
