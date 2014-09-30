@@ -8,6 +8,8 @@ tracks:
     - git-bloom-generate -y rosrelease :{ros_distro} --source upstream -i :{release_inc}
     - git-bloom-generate -y rosdebian --prefix release/:{ros_distro} :{ros_distro}
       -i :{release_inc}
+    - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
+      :{release_inc}
     devel_branch: default
     last_version: 1.0.0
     name: multisense_ros
@@ -17,5 +19,5 @@ tracks:
     release_tag: :{version}
     ros_distro: hydro
     vcs_type: hg
-    vcs_uri: https://bitbucket.org/osrf/multisense_ros
+    vcs_uri: https://bitbucket.org/crl/multisense_ros
     version: :{auto}
