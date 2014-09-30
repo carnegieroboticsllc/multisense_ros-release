@@ -5,22 +5,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * Significant history (date, user, job code, action):
  *   2013-05-08, ekratzer@carnegierobotics.com, PR1044, created file.
@@ -40,7 +50,7 @@ namespace wire {
 
 class PcbInfo {
 public:
-    static const VersionType VERSION = 1;
+    static CONSTEXPR VersionType VERSION = 1;
 
     std::string name;
     uint32_t    revision;
@@ -56,32 +66,33 @@ public:
 
 class SysDeviceInfo {
 public:
-    static const IdType      ID      = ID_DATA_SYS_DEVICE_INFO;
-    static const VersionType VERSION = 1;
+    static CONSTEXPR IdType      ID      = ID_DATA_SYS_DEVICE_INFO;
+    static CONSTEXPR VersionType VERSION = 1;
 
     //
     // These constants are stored in flash on the device, do
     // not change these, only add.
     //
     // crl::multisense::DeviceInfo:: has similar constants
-    // that can be changed at will (just remember to 
+    // that can be changed at will (just remember to
     // map any differences when translating between
     // WIRE and API.)
 
-    static const uint8_t  MAX_PCBS = 8;
+    static CONSTEXPR uint8_t  MAX_PCBS = 8;
 
-    static const uint32_t HARDWARE_REV_MULTISENSE_SL    = 1;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S7    = 2;
-    static const uint32_t HARDWARE_REV_MULTISENSE_M     = 3;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S7S   = 4;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S21   = 5;
-    static const uint32_t HARDWARE_REV_BCAM             = 100;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_SL    = 1;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S7    = 2;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_M     = 3;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S7S   = 4;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S21   = 5;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_ST21  = 6;
+    static CONSTEXPR uint32_t HARDWARE_REV_BCAM             = 100;
 
-    static const uint32_t IMAGER_TYPE_CMV2000_GREY   = 1;
-    static const uint32_t IMAGER_TYPE_CMV2000_COLOR  = 2;
-    static const uint32_t IMAGER_TYPE_CMV4000_GREY   = 3;
-    static const uint32_t IMAGER_TYPE_CMV4000_COLOR  = 4;
-    static const uint32_t IMAGER_TYPE_IMX104_COLOR   = 100;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV2000_GREY   = 1;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV2000_COLOR  = 2;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV4000_GREY   = 3;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV4000_COLOR  = 4;
+    static CONSTEXPR uint32_t IMAGER_TYPE_IMX104_COLOR   = 100;
 
     std::string key;
     std::string name;
@@ -91,12 +102,12 @@ public:
 
     uint8_t     numberOfPcbs;
     PcbInfo     pcbs[MAX_PCBS];
-    
+
     std::string imagerName;
     uint32_t    imagerType;
     uint32_t    imagerWidth;
     uint32_t    imagerHeight;
-    
+
     std::string lensName;
     uint32_t    lensType;
     float       nominalBaseline;          // meters
@@ -134,7 +145,7 @@ public:
 
     //
     // Serialization routine
-    
+
     template<class Archive>
         void serialize(Archive&          message,
                        const VersionType version)
