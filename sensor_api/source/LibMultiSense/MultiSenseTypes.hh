@@ -3,22 +3,32 @@
  *
  * Copyright 2013
  * Carnegie Robotics, LLC
- * Ten 40th Street, Pittsburgh, PA 15201
+ * 4501 Hatfield Street, Pittsburgh, PA 15201
  * http://www.carnegierobotics.com
  *
- * This software is free: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation,
- * version 3 of the License.
+ * All rights reserved.
  *
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Carnegie Robotics, LLC nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL CARNEGIE ROBOTICS, LLC BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * Significant history (date, user, job code, action):
  *   2013-05-06, ekratzer@carnegierobotics.com, PR1044, Created file.
@@ -32,6 +42,8 @@
 #include <string>
 #include <vector>
 
+#include "details/utility/Portability.hh"
+
 namespace crl {
 namespace multisense {
 
@@ -44,37 +56,37 @@ typedef int32_t  Status;
 //
 // General status codes
 
-static const Status Status_Ok          =  0;
-static const Status Status_TimedOut    = -1;
-static const Status Status_Error       = -2;
-static const Status Status_Failed      = -3;
-static const Status Status_Unsupported = -4;
-static const Status Status_Unknown     = -5;
-static const Status Status_Exception   = -6;
+static CONSTEXPR Status Status_Ok          =  0;
+static CONSTEXPR Status Status_TimedOut    = -1;
+static CONSTEXPR Status Status_Error       = -2;
+static CONSTEXPR Status Status_Failed      = -3;
+static CONSTEXPR Status Status_Unsupported = -4;
+static CONSTEXPR Status Status_Unknown     = -5;
+static CONSTEXPR Status Status_Exception   = -6;
 
 //
 // Data sources
 
 typedef uint32_t DataSource;
 
-static const DataSource Source_Unknown                = 0;
-static const DataSource Source_All                    = 0xffffffff;
-static const DataSource Source_Raw_Left               = (1<<0);
-static const DataSource Source_Raw_Right              = (1<<1);
-static const DataSource Source_Luma_Left              = (1<<2);
-static const DataSource Source_Luma_Right             = (1<<3);
-static const DataSource Source_Luma_Rectified_Left    = (1<<4);
-static const DataSource Source_Luma_Rectified_Right   = (1<<5);
-static const DataSource Source_Chroma_Left            = (1<<6);
-static const DataSource Source_Chroma_Right           = (1<<7);
-static const DataSource Source_Disparity              = (1<<10);
-static const DataSource Source_Disparity_Left         = (1<<10); // same as Source_Disparity
-static const DataSource Source_Disparity_Right        = (1<<11);
-static const DataSource Source_Disparity_Cost         = (1<<12);
-static const DataSource Source_Jpeg_Left              = (1<<16); 
-static const DataSource Source_Rgb_Left               = (1<<17);
-static const DataSource Source_Lidar_Scan             = (1<<24);
-static const DataSource Source_Imu                    = (1<<25);
+static CONSTEXPR DataSource Source_Unknown                = 0;
+static CONSTEXPR DataSource Source_All                    = 0xffffffff;
+static CONSTEXPR DataSource Source_Raw_Left               = (1<<0);
+static CONSTEXPR DataSource Source_Raw_Right              = (1<<1);
+static CONSTEXPR DataSource Source_Luma_Left              = (1<<2);
+static CONSTEXPR DataSource Source_Luma_Right             = (1<<3);
+static CONSTEXPR DataSource Source_Luma_Rectified_Left    = (1<<4);
+static CONSTEXPR DataSource Source_Luma_Rectified_Right   = (1<<5);
+static CONSTEXPR DataSource Source_Chroma_Left            = (1<<6);
+static CONSTEXPR DataSource Source_Chroma_Right           = (1<<7);
+static CONSTEXPR DataSource Source_Disparity              = (1<<10);
+static CONSTEXPR DataSource Source_Disparity_Left         = (1<<10); // same as Source_Disparity
+static CONSTEXPR DataSource Source_Disparity_Right        = (1<<11);
+static CONSTEXPR DataSource Source_Disparity_Cost         = (1<<12);
+static CONSTEXPR DataSource Source_Jpeg_Left              = (1<<16); 
+static CONSTEXPR DataSource Source_Rgb_Left               = (1<<17);
+static CONSTEXPR DataSource Source_Lidar_Scan             = (1<<24);
+static CONSTEXPR DataSource Source_Imu                    = (1<<25);
 
 //
 // 3rd-party stream destination
@@ -84,7 +96,7 @@ static const DataSource Source_Imu                    = (1<<25);
 class DirectedStream {
 public:
 
-    static const uint16_t DFL_UDP_PORT = 10001;
+    static CONSTEXPR uint16_t DFL_UDP_PORT = 10001;
 
     DataSource  mask;
     std::string address;       // IPv4 dotted quad 
@@ -107,8 +119,8 @@ public:
 
 typedef uint32_t TriggerSource;
 
-static const TriggerSource Trigger_Internal    = 0; // default, image::config.setFps()
-static const TriggerSource Trigger_External    = 1; // OPTO_RX input
+static CONSTEXPR TriggerSource Trigger_Internal    = 0; // default, image::config.setFps()
+static CONSTEXPR TriggerSource Trigger_External    = 1; // OPTO_RX input
 
 //
 // Base class for callbacks
@@ -340,8 +352,8 @@ public:
 
 namespace lighting {
 
-static const uint32_t MAX_LIGHTS     = 8;
-static const float    MAX_DUTY_CYCLE = 100.0;
+static CONSTEXPR uint32_t MAX_LIGHTS     = 8;
+static CONSTEXPR float    MAX_DUTY_CYCLE = 100.0;
 
 //
 // For query/setting lighting configuration
@@ -428,9 +440,9 @@ public:
 
     typedef uint16_t Type;
 
-    static const Type Type_Accelerometer = 1;
-    static const Type Type_Gyroscope     = 2;
-    static const Type Type_Magnetometer  = 3;
+    static CONSTEXPR Type Type_Accelerometer = 1;
+    static CONSTEXPR Type Type_Gyroscope     = 2;
+    static CONSTEXPR Type Type_Magnetometer  = 3;
 
     Type       type;
     uint32_t   timeSeconds;
@@ -560,21 +572,22 @@ public:
 class DeviceInfo {
 public:
 
-    static const uint32_t MAX_PCBS                   = 8;
+    static CONSTEXPR uint32_t MAX_PCBS                   = 8;
 
-    static const uint32_t HARDWARE_REV_MULTISENSE_SL    = 1;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S7    = 2;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S     = HARDWARE_REV_MULTISENSE_S7; // alias for backward source compatibility
-    static const uint32_t HARDWARE_REV_MULTISENSE_M     = 3;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S7S   = 4;
-    static const uint32_t HARDWARE_REV_MULTISENSE_S21   = 5;
-    static const uint32_t HARDWARE_REV_BCAM             = 100;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_SL    = 1;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S7    = 2;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S     = HARDWARE_REV_MULTISENSE_S7; // alias for backward source compatibility
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_M     = 3;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S7S   = 4;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_S21   = 5;
+    static CONSTEXPR uint32_t HARDWARE_REV_MULTISENSE_ST21  = 6;
+    static CONSTEXPR uint32_t HARDWARE_REV_BCAM             = 100;
 
-    static const uint32_t IMAGER_TYPE_CMV2000_GREY   = 1;
-    static const uint32_t IMAGER_TYPE_CMV2000_COLOR  = 2;
-    static const uint32_t IMAGER_TYPE_CMV4000_GREY   = 3;
-    static const uint32_t IMAGER_TYPE_CMV4000_COLOR  = 4;
-    static const uint32_t IMAGER_TYPE_IMX104_COLOR   = 100;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV2000_GREY   = 1;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV2000_COLOR  = 2;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV4000_GREY   = 3;
+    static CONSTEXPR uint32_t IMAGER_TYPE_CMV4000_COLOR  = 4;
+    static CONSTEXPR uint32_t IMAGER_TYPE_IMX104_COLOR   = 100;
 
     std::string name;
     std::string buildDate;
