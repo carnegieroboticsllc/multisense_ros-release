@@ -2,8 +2,10 @@
 Changelog for package multisense_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.3.1 (2014-10-09)
+3.3.2 (2014-10-23)
 ------------------
+* Added colorized laser point cloud topic. Removed LIDAR streaming frequency warning. Updated build dependencies for Bloom. General interface cleanup.
+* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
 ------------------
