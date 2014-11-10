@@ -2,6 +2,9 @@
 Changelog for package multisense_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.3.6 (2014-11-10)
+------------------
+
 3.3.5 (2014-11-03)
 ------------------
 * Added catkin installation rule for configureNetwork.sh script.
