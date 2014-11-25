@@ -1,0 +1,14 @@
+Source: ros-indigo-multisense-ros
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), libturbojpeg, libyaml-cpp-dev, ros-indigo-angles, ros-indigo-catkin, ros-indigo-cv-bridge, ros-indigo-dynamic-reconfigure, ros-indigo-genmsg, ros-indigo-image-geometry, ros-indigo-image-transport, ros-indigo-message-generation, ros-indigo-message-runtime, ros-indigo-multisense-lib, ros-indigo-rosbag, ros-indigo-roscpp, ros-indigo-sensor-msgs, ros-indigo-std-msgs, ros-indigo-tf
+
+
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-indigo-multisense-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg, ros-indigo-angles, ros-indigo-cv-bridge, ros-indigo-dynamic-reconfigure, ros-indigo-genmsg, ros-indigo-image-geometry, ros-indigo-image-transport, ros-indigo-message-generation, ros-indigo-message-runtime, ros-indigo-multisense-lib, ros-indigo-rosbag, ros-indigo-roscpp, ros-indigo-sensor-msgs, ros-indigo-std-msgs, ros-indigo-tf
+Description: multisense_ros
