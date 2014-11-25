@@ -1,0 +1,14 @@
+Source: ros-indigo-multisense
+Section: misc
+Priority: extra
+Maintainer: Maintained by Carnegie Robotics LLC <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+
+
+Homepage: http://ros.org/wiki/multisense
+Standards-Version: 3.9.2
+
+Package: ros-indigo-multisense
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-multisense-bringup, ros-indigo-multisense-cal-check, ros-indigo-multisense-description, ros-indigo-multisense-lib, ros-indigo-multisense-ros
+Description: multisense catkin driver
