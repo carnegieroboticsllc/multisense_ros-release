@@ -1,3 +1,30 @@
+## multisense_ros (indigo) - 3.4.0-0
+
+The packages in the `multisense_ros` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --track indigo --ros-distro indigo multisense_ros` on `Thu, 11 Dec 2014 19:17:50 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+- upstream repository: https://bitbucket.org/crl/multisense_ros
+- release repository: https://github.com/carnegieroboticsllc/multisense_ros-release.git
+- rosdistro version: `3.3.9-0`
+- old version: `3.3.9-0`
+- new version: `3.4.0-0`
+
+Versions of tools used:
+- bloom version: `0.5.15`
+- catkin_pkg version: `0.2.6`
+- rosdep version: `0.11.0`
+- rosdistro version: `0.4.0`
+- vcstools version: `0.1.35`
+
+
 ## multisense_ros (hydro) - 3.4.0-0
 
 The packages in the `multisense_ros` repository were released into the `hydro` distro by running `/usr/bin/bloom-release --track hydro --ros-distro hydro multisense_ros` on `Thu, 11 Dec 2014 19:13:34 -0000`
