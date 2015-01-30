@@ -1,0 +1,12 @@
+Source: ros-hydro-multisense-cal-check
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-hydro-catkin, ros-hydro-multisense-ros
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-hydro-multisense-cal-check
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-hydro-multisense-ros
+Description: multisense_cal_check
