@@ -2,6 +2,11 @@
 Changelog for package multisense_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.4.6 (2015-12-01)
+------------------
+* Removed unused Atlas textures from the MultiSense ROS driver as per M. Fallon’s request on bitbucket issue #54.
+* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
+
 3.4.5 (2015-10-20)
 ------------------
 
