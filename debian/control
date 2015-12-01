@@ -1,0 +1,12 @@
+Source: ros-jade-multisense-ros
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), libturbojpeg, libyaml-cpp-dev, ros-jade-angles, ros-jade-catkin, ros-jade-cv-bridge, ros-jade-dynamic-reconfigure, ros-jade-genmsg, ros-jade-geometry-msgs, ros-jade-image-geometry, ros-jade-image-transport, ros-jade-message-generation, ros-jade-message-runtime, ros-jade-multisense-lib, ros-jade-rosbag, ros-jade-roscpp, ros-jade-sensor-msgs, ros-jade-std-msgs, ros-jade-stereo-msgs, ros-jade-tf
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-jade-multisense-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg, ros-jade-angles, ros-jade-cv-bridge, ros-jade-dynamic-reconfigure, ros-jade-genmsg, ros-jade-geometry-msgs, ros-jade-image-geometry, ros-jade-image-transport, ros-jade-message-generation, ros-jade-message-runtime, ros-jade-multisense-lib, ros-jade-rosbag, ros-jade-roscpp, ros-jade-sensor-msgs, ros-jade-std-msgs, ros-jade-stereo-msgs, ros-jade-tf
+Description: multisense_ros
