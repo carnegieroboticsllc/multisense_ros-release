@@ -2,57 +2,9 @@
 Changelog for package multisense_lib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.6 (2015-12-01)
+3.4.7 (2016-03-04)
 ------------------
-
-3.4.5 (2015-10-20)
-------------------
-
-3.4.4 (2015-06-25)
-------------------
-
-3.4.3 (2015-02-12)
-------------------
-
-3.4.2 (2015-01-30)
-------------------
-* Added launch_robot_state_publisher argument to multisense_bringup/multisense.launch. Added geometry_msgs/Vector3Stamped publishers for accelerometer, gyroscope, and magnetometer data. Updated LibMultiSense.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.1 (2014-12-30)
-------------------
-
-3.4.0 (2014-12-11)
-------------------
-* Updated LibMultiSense to version 3.5. Fixed camera_info publishing bug for non-standard cameras (BCAM, Multisense-M, ST21). Added HDR option to dynamic reconfigure.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.9 (2014-12-08)
-------------------
-
-3.3.8 (2014-12-02)
-------------------
-
-3.3.7 (2014-11-25)
-------------------
-
-3.3.6 (2014-11-10)
-------------------
-
-3.3.5 (2014-11-03)
-------------------
-
-3.3.4 (2014-10-31)
-------------------
-
-3.3.3 (2014-10-24)
-------------------
-* Updated CMakeLists.txt to resolve linker errors with Jenkins.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.2 (2014-10-23)
-------------------
-* Added colorized laser point cloud topic. Removed LIDAR streaming frequency warning. Updated build dependencies for Bloom. General interface cleanup.
+* Add in support for MultiSense DeviceStatus messages. Revised the cal_check utility to remove the Matlab dependency.
 * Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
