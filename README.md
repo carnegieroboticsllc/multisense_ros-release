@@ -1,3 +1,30 @@
+## multisense_ros (indigo) - 3.4.7-0
+
+The packages in the `multisense_ros` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --track indigo --ros-distro indigo multisense_ros` on `Fri, 04 Mar 2016 17:57:29 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+- upstream repository: https://bitbucket.org/crl/multisense_ros
+- release repository: https://github.com/carnegieroboticsllc/multisense_ros-release.git
+- rosdistro version: `3.4.6-0`
+- old version: `3.4.6-0`
+- new version: `3.4.7-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.4`
+- vcstools version: `0.1.38`
+
+
 ## multisense_ros (jade) - 3.4.6-0
 
 The packages in the `multisense_ros` repository were released into the `jade` distro by running `/usr/bin/bloom-release --track jade --ros-distro jade multisense_ros` on `Tue, 01 Dec 2015 17:57:43 -0000`
