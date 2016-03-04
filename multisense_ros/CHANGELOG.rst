@@ -2,75 +2,9 @@
 Changelog for package multisense_ros
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.6 (2015-12-01)
+3.4.7 (2016-03-04)
 ------------------
-
-3.4.5 (2015-10-20)
-------------------
-* Changed the image encoding types from 8UC1/16UC1 to mono8/mono16.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.4 (2015-06-25)
-------------------
-* Populated the effort field for the motor_joint joint_states message (issue #48). Updated image encodings to fix display issues with rqt_image_view. Added a openni_depth topic which follows the OpenNI depth image convention (issue #50). Updated the depth image computation logic to improve efficiency.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.3 (2015-02-12)
-------------------
-* Removed URDF and xacro dependency from multisense_description. Fixed bitbucket issue #36 relating to point cloud size allocation.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.2 (2015-01-30)
-------------------
-* Added launch_robot_state_publisher argument to multisense_bringup/multisense.launch. Added geometry_msgs/Vector3Stamped publishers for accelerometer, gyroscope, and magnetometer data. Updated LibMultiSense.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.1 (2014-12-30)
-------------------
-* Populated all camera_info matrices for all camera_info topics. Added a /multisense/depth/camera_info topic. Re-factored camera_info population code.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.0 (2014-12-11)
-------------------
-* Updated LibMultiSense to version 3.5. Fixed camera_info publishing bug for non-standard cameras (BCAM, Multisense-M, ST21). Added HDR option to dynamic reconfigure.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.9 (2014-12-08)
-------------------
-* Added reconfigurable border clipping options for the output pointclouds.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.8 (2014-12-02)
-------------------
-* Added stereo_msgs/DisparityImage publishing for both left and right disparity images. Added latched default camera_info publishing for all image topics. Updated rosbuild multisense_ros CMakeLists.txt to build color_laser_publisher.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.7 (2014-11-25)
-------------------
-* Added support for the MultiSense Moncular camera.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.6 (2014-11-10)
-------------------
-* Added libturbojpeg dependency to multisense_ros. Based on pull request https://bitbucket.org/crl/multisense_ros/pull-request/5/added-libturbojpeg-to-dependencies-for/diff
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.5 (2014-11-03)
-------------------
-
-3.3.4 (2014-10-31)
-------------------
-* Added sensor_msgs::Imu message publishing. No orientation information is published. Updated URDF models to have consistent accelerometer, magnetometer, and gyroscope frame_ids.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.3 (2014-10-24)
-------------------
-* Updated CMakeLists.txt to resolve linker errors with Jenkins.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.2 (2014-10-23)
-------------------
-* Added colorized laser point cloud topic. Removed LIDAR streaming frequency warning. Updated build dependencies for Bloom. General interface cleanup.
+* Add in support for MultiSense DeviceStatus messages. Revised the cal_check utility to remove the Matlab dependency.
 * Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
