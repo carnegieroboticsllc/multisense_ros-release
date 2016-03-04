@@ -2,59 +2,9 @@
 Changelog for package multisense_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.6 (2015-12-01)
+3.4.7 (2016-03-04)
 ------------------
-
-3.4.5 (2015-10-20)
-------------------
-
-3.4.4 (2015-06-25)
-------------------
-* Populated the effort field for the motor_joint joint_states message (issue #48). Updated image encodings to fix display issues with rqt_image_view. Added a openni_depth topic which follows the OpenNI depth image convention (issue #50). Updated the depth image computation logic to improve efficiency.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.3 (2015-02-12)
-------------------
-
-3.4.2 (2015-01-30)
-------------------
-* Added launch_robot_state_publisher argument to multisense_bringup/multisense.launch. Added geometry_msgs/Vector3Stamped publishers for accelerometer, gyroscope, and magnetometer data. Updated LibMultiSense.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.4.1 (2014-12-30)
-------------------
-
-3.4.0 (2014-12-11)
-------------------
-
-3.3.9 (2014-12-08)
-------------------
-
-3.3.8 (2014-12-02)
-------------------
-
-3.3.7 (2014-11-25)
-------------------
-
-3.3.6 (2014-11-10)
-------------------
-
-3.3.5 (2014-11-03)
-------------------
-* Added catkin installation rule for configureNetwork.sh script.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.4 (2014-10-31)
-------------------
-* Added sensor_msgs::Imu message publishing. No orientation information is published. Updated URDF models to have consistent accelerometer, magnetometer, and gyroscope frame_ids.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
-
-3.3.3 (2014-10-24)
-------------------
-
-3.3.2 (2014-10-23)
-------------------
-* Added colorized laser point cloud topic. Removed LIDAR streaming frequency warning. Updated build dependencies for Bloom. General interface cleanup.
+* Add in support for MultiSense DeviceStatus messages. Revised the cal_check utility to remove the Matlab dependency.
 * Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
