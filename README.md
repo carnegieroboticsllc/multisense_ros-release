@@ -1,3 +1,32 @@
+## multisense_ros (kinetic) - 3.4.7-0
+
+The packages in the `multisense_ros` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --track kinetic --ros-distro kinetic multisense_ros` on `Sat, 27 Aug 2016 19:08:55 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+
+- upstream repository: https://bitbucket.org/crl/multisense_ros
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `3.4.7-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.22`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.4.7`
+- vcstools version: `0.1.39`
+
+
 ## multisense_ros (jade) - 3.4.7-0
 
 The packages in the `multisense_ros` repository were released into the `jade` distro by running `/usr/bin/bloom-release --track jade --ros-distro jade multisense_ros` on `Fri, 04 Mar 2016 18:01:43 -0000`
