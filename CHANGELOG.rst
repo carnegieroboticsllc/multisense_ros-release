@@ -2,10 +2,16 @@
 Changelog for package multisense_lib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.7 (2016-03-04)
+3.4.9 (2016-09-08)
 ------------------
-* Add in support for MultiSense DeviceStatus messages. Revised the cal_check utility to remove the Matlab dependency.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
+* Got rid of unused function.
+* Modified header file management to be consistent with ROS package conventions.
+* Contributors: Ryan Keating <rkeating@carnegierobotics.com>
+
+3.4.8 (2016-09-02)
+------------------
+* Fixed compatibility issue with OpenCV 3.1
+* Contributors: Ryan Keating <rkeating@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
 ------------------
