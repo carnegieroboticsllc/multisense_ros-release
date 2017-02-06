@@ -1,0 +1,12 @@
+Source: ros-kinetic-multisense
+Section: misc
+Priority: extra
+Maintainer: Maintained by Carnegie Robotics LLC <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://ros.org/wiki/multisense
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-multisense
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-multisense-bringup, ros-kinetic-multisense-cal-check, ros-kinetic-multisense-description, ros-kinetic-multisense-lib, ros-kinetic-multisense-ros
+Description: multisense catkin driver
