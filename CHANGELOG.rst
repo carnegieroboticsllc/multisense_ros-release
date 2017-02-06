@@ -2,12 +2,10 @@
 Changelog for package multisense_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.9 (2016-09-08)
+4.0.0 (2017-02-06)
 ------------------
-
-3.4.8 (2016-09-02)
-------------------
-* Fixed compatibility issue with OpenCV 3.1
+* Added support for new firmware version 3.5 features.
+  Rewrote urdf and launch files for ease of use.
 * Contributors: Ryan Keating <rkeating@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
