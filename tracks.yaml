@@ -79,7 +79,7 @@ tracks:
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc}
     devel_branch: default
-    last_version: 3.4.9
+    last_version: 4.0.0
     name: multisense_ros
     patches: null
     release_inc: '0'
