@@ -2,10 +2,11 @@
 Changelog for package multisense_lib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.4.7 (2016-03-04)
+4.0.0 (2017-02-06)
 ------------------
-* Add in support for MultiSense DeviceStatus messages. Revised the cal_check utility to remove the Matlab dependency.
-* Contributors: Matt Alvarado <malvarado@carnegierobotics.com>
+* Added support for new firmware version 3.5 features.
+  Rewrote urdf and launch files for ease of use.
+* Contributors: Ryan Keating <rkeating@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
 ------------------
