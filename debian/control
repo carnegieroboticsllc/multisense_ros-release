@@ -1,0 +1,12 @@
+Source: ros-jade-multisense-cal-check
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin, ros-jade-multisense-ros
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-jade-multisense-cal-check
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jade-multisense-ros
+Description: multisense_cal_check
