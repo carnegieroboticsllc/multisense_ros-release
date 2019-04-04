@@ -2,11 +2,10 @@
 Changelog for package multisense_cal_check
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4.0.0 (2017-02-06)
+4.0.2 (2019-04-03)
 ------------------
-* Added support for new firmware version 3.5 features.
-  Rewrote urdf and launch files for ease of use.
-* Contributors: Ryan Keating <rkeating@carnegierobotics.com>
+* added C++98 compatibility
+* Contributors: Quentin Torgerson <qtorgerson@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
 ------------------
