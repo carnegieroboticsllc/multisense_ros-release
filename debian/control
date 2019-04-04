@@ -1,0 +1,12 @@
+Source: ros-lunar-multisense-ros
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), libturbojpeg0-dev, libyaml-cpp-dev, ros-lunar-angles, ros-lunar-catkin, ros-lunar-cv-bridge, ros-lunar-dynamic-reconfigure, ros-lunar-genmsg, ros-lunar-geometry-msgs, ros-lunar-image-geometry, ros-lunar-image-transport, ros-lunar-message-generation, ros-lunar-message-runtime, ros-lunar-multisense-lib, ros-lunar-rosbag, ros-lunar-roscpp, ros-lunar-sensor-msgs, ros-lunar-std-msgs, ros-lunar-stereo-msgs, ros-lunar-tf
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-lunar-multisense-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg0-dev, ros-lunar-angles, ros-lunar-cv-bridge, ros-lunar-dynamic-reconfigure, ros-lunar-genmsg, ros-lunar-geometry-msgs, ros-lunar-image-geometry, ros-lunar-image-transport, ros-lunar-message-generation, ros-lunar-message-runtime, ros-lunar-multisense-lib, ros-lunar-rosbag, ros-lunar-roscpp, ros-lunar-sensor-msgs, ros-lunar-std-msgs, ros-lunar-stereo-msgs, ros-lunar-tf
+Description: multisense_ros
