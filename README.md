@@ -1,3 +1,32 @@
+## multisense_ros (melodic) - 4.0.2-0
+
+The packages in the `multisense_ros` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --track melodic --ros-distro melodic multisense_ros --edit` on `Thu, 04 Apr 2019 14:45:50 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+
+- upstream repository: https://bitbucket.org/crl/multisense_ros
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `4.0.2-0`
+
+Versions of tools used:
+
+- bloom version: `0.7.2`
+- catkin_pkg version: `0.4.11`
+- rosdep version: `0.15.1`
+- rosdistro version: `0.7.3`
+- vcstools version: `0.1.40`
+
+
 ## multisense_ros (indigo) - 4.0.0-0
 
 The packages in the `multisense_ros` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --track indigo --ros-distro indigo multisense_ros` on `Mon, 06 Feb 2017 19:07:01 -0000`
