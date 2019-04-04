@@ -1,0 +1,12 @@
+Source: ros-lunar-multisense-cal-check
+Section: misc
+Priority: extra
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-catkin, ros-lunar-multisense-ros
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-lunar-multisense-cal-check
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-multisense-ros
+Description: multisense_cal_check
