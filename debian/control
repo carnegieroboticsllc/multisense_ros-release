@@ -1,0 +1,12 @@
+Source: ros-melodic-multisense-bringup
+Section: misc
+Priority: optional
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin, ros-melodic-multisense-description, ros-melodic-multisense-ros
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-melodic-multisense-bringup
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-multisense-description, ros-melodic-multisense-ros
+Description: multisense_bringup
