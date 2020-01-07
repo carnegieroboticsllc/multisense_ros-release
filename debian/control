@@ -1,0 +1,12 @@
+Source: ros-melodic-multisense-ros
+Section: misc
+Priority: optional
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), libturbojpeg0-dev, libyaml-cpp-dev, ros-melodic-angles, ros-melodic-catkin, ros-melodic-cv-bridge, ros-melodic-dynamic-reconfigure, ros-melodic-genmsg, ros-melodic-geometry-msgs, ros-melodic-image-geometry, ros-melodic-image-transport, ros-melodic-message-generation, ros-melodic-message-runtime, ros-melodic-multisense-lib, ros-melodic-rosbag, ros-melodic-roscpp, ros-melodic-sensor-msgs, ros-melodic-std-msgs, ros-melodic-stereo-msgs, ros-melodic-tf
+Homepage: https://bitbucket.org/crl/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-melodic-multisense-ros
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libturbojpeg0-dev, ros-melodic-angles, ros-melodic-cv-bridge, ros-melodic-dynamic-reconfigure, ros-melodic-genmsg, ros-melodic-geometry-msgs, ros-melodic-image-geometry, ros-melodic-image-transport, ros-melodic-message-generation, ros-melodic-message-runtime, ros-melodic-multisense-lib, ros-melodic-rosbag, ros-melodic-roscpp, ros-melodic-sensor-msgs, ros-melodic-std-msgs, ros-melodic-stereo-msgs, ros-melodic-tf
+Description: multisense_ros
