@@ -2,11 +2,20 @@
 Changelog for package multisense_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-4.0.0 (2017-02-06)
+4.0.4 (2020-07-01)
 ------------------
-* Added support for new firmware version 3.5 features.
-  Rewrote urdf and launch files for ease of use.
-* Contributors: Ryan Keating <rkeating@carnegierobotics.com>
+* update release to reference github instead of bitbucket
+
+4.0.3 (2020-01-07)
+------------------
+* undo early commit
+* incremented package.xml version numbers for next release
+* Contributors: Quentin Torgerson <qtorgerson@carnegierobotics.com>
+
+4.0.2 (2019-04-03)
+------------------
+* added C++98 compatibility
+* Contributors: Quentin Torgerson <qtorgerson@carnegierobotics.com>
 
 3.3.0 (2014-09-30)
 ------------------
