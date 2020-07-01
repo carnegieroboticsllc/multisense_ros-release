@@ -1,0 +1,12 @@
+Source: ros-melodic-multisense-description
+Section: misc
+Priority: optional
+Maintainer: Carnegie Robotics <support@carnegierobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin
+Homepage: https://github.com/carnegierobotics/multisense_ros
+Standards-Version: 3.9.2
+
+Package: ros-melodic-multisense-description
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: multisense_description
