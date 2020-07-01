@@ -1,4 +1,0 @@
-repo: 0a590dde6e531f9ab626ccc50b9080f969789a6a
-node: 4343c7eb9ab0471957976d0e8702a8ea104cdca3
-branch: default
-tag: 4.0.0
