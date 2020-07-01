@@ -1,3 +1,32 @@
+## multisense_ros (melodic) - 4.0.4-1
+
+The packages in the `multisense_ros` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --track melodic --ros-distro melodic multisense_ros --edit` on `Wed, 01 Jul 2020 21:54:14 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+
+- upstream repository: https://github.com/carnegierobotics/multisense_ros.git
+- release repository: https://github.com/carnegieroboticsllc/multisense_ros-release.git
+- rosdistro version: `4.0.3-1`
+- old version: `4.0.3-1`
+- new version: `4.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.7`
+- catkin_pkg version: `0.4.22`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## multisense_ros (melodic) - 4.0.3-1
 
 The packages in the `multisense_ros` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --track melodic --ros-distro melodic multisense_ros` on `Tue, 07 Jan 2020 19:26:45 -0000`
