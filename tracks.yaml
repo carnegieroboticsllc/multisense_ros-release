@@ -130,7 +130,7 @@ tracks:
       -i :{release_inc} --os-name debian --os-not-required
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc}
-    devel_branch: default
+    devel_branch: master
     last_version: 4.0.3
     name: multisense_ros
     patches: null
@@ -138,6 +138,6 @@ tracks:
     release_repo_url: null
     release_tag: :{version}
     ros_distro: melodic
-    vcs_type: hg
-    vcs_uri: https://bitbucket.org/crl/multisense_ros
+    vcs_type: git
+    vcs_uri: https://github.com/carnegierobotics/multisense_ros.git
     version: :{auto}
