@@ -1,3 +1,32 @@
+## multisense_ros (noetic) - 4.0.5-1
+
+The packages in the `multisense_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --track noetic --ros-distro noetic multisense_ros` on `Tue, 04 Aug 2020 03:38:45 -0000`
+
+These packages were released:
+- `multisense`
+- `multisense_bringup`
+- `multisense_cal_check`
+- `multisense_description`
+- `multisense_lib`
+- `multisense_ros`
+
+Version of package(s) in repository `multisense_ros`:
+
+- upstream repository: https://github.com/carnegierobotics/multisense_ros.git
+- release repository: https://github.com/carnegieroboticsllc/multisense_ros-release.git
+- rosdistro version: `4.0.4-1`
+- old version: `4.0.4-1`
+- new version: `4.0.5-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.7`
+- catkin_pkg version: `0.4.22`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## multisense_ros (noetic) - 4.0.4-1
 
 The packages in the `multisense_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release --track noetic --ros-distro noetic multisense_ros --edit` on `Wed, 01 Jul 2020 22:14:22 -0000`
